@@ -34,7 +34,7 @@ const Trending = ({ toggleExpansion, expanded }) => {
         <div className="px-4 py-8">
           <h1 className={`${!expanded ? 'hidden' : 'block'} text-base text-white bg-opacity-80 text-2xl px-12`}>Trending Repos</h1>
           <p className="pl-12 text-white text-gray-400 text-sm">These repos have had the most comments and/or issues the last 30 days!</p>
-          <div className="z-20 grid grid-cols-1 gap-6 md:grid-cols-5 px-10 py-4 h-full">
+          <div className="z-20 grid grid-cols-1 gap-2 md:grid-cols-4 2xl:grid-cols-8 px-10 py-4 h-full">
             {data && data.length ? (data.map((item) => (
               <ZombieCard
                 key={item._id}

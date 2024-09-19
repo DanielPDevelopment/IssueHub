@@ -24,7 +24,7 @@ const Admin = () => {
       <div className="h-full w-full bg-darkMainBG min-h-screen">
         {/* Main Content */}
         <main
-          className={`mx-[12px] h-full flex-none transition-all ${process.env.REACT_APP_SB_VISIBLE === 'true' && 'md:pr-2 xl:ml-[313px]'} min-h-screen `}
+          className={`mx-[12px] h-full flex-none transition-all ${JSON.parse(process.env.REACT_APP_SB_VISIBLE) && 'md:pr-2 xl:ml-[313px]'} min-h-screen `}
         >
           {/* Routes */}
           <div className="h-full min-h-screen">

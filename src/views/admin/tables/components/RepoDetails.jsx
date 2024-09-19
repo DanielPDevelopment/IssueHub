@@ -38,10 +38,10 @@ const RepoDetails = ({
 );
 
 RepoDetails.propTypes = {
-  activeIssue: PropTypes.node.isRequired,
-  setActiveIssue: PropTypes.node.isRequired,
+  activeIssue: PropTypes.object.isRequired,
+  setActiveIssue: PropTypes.func.isRequired,
   fullscreen: PropTypes.bool,
-  setFullscreen: PropTypes.node.isRequired,
+  setFullscreen: PropTypes.func.isRequired,
   killTabs: PropTypes.func.isRequired,
 };
 

@@ -46,7 +46,7 @@ const DevelopmentTable = (props) => {
   );
 
   const {
-    getTableProps,
+    // getTableProps,
     getTableBodyProps,
     headerGroups,
     page,
@@ -198,7 +198,7 @@ const DevelopmentTable = (props) => {
           )
           : (
             <table
-              {...getTableProps()}
+              // {...getTableProps()}
               className="mt-2 h-max w-full"
               variant="simple"
               color="gray-500"
@@ -210,7 +210,9 @@ const DevelopmentTable = (props) => {
                   <tr {...headerGroup.getHeaderGroupProps()} key={index}>
                     {headerGroup.headers.map((column, idx) => (
                       <th
-                        {...column.getHeaderProps(column.getSortByToggleProps())}
+                      // Removed sorting by column
+                      // {...column.getHeaderProps(column.getSortByToggleProps())}
+                        {...column.getHeaderProps()}
                         className="border-b pr-2 pb-[10px] text-start !border-gray-0 "
                         key={idx}
                       >
@@ -374,19 +376,21 @@ const DevelopmentTable = (props) => {
 };
 
 DevelopmentTable.propTypes = {
-  columnsData: PropTypes.node.isRequired,
-  tableData: PropTypes.node.isRequired,
+  columnsData: PropTypes.arrayOf(PropTypes.object),
+  tableData: PropTypes.arrayOf(PropTypes.object),
   isLoading: PropTypes.bool,
   resultsLoading: PropTypes.bool,
   canNextPage: PropTypes.bool,
   canPreviousPage: PropTypes.bool,
   pageIndex: PropTypes.number,
-  setCurrentPage: PropTypes.node.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   count: PropTypes.number,
 };
 
 DevelopmentTable.defaultProps = {
+  columnsData: [],
+  tableData: [],
   isLoading: false,
   resultsLoading: true,
   canNextPage: false,

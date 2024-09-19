@@ -256,7 +256,26 @@ const RepoGeneralInfo = ({ issue }) => {
 };
 
 RepoGeneralInfo.propTypes = {
-  issue: PropTypes.node.isRequired,
+  issue: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    url: PropTypes.string,
+    issue_title: PropTypes.string,
+    issue_url: PropTypes.string,
+    state: PropTypes.string,
+    created_at: PropTypes.string,
+    body: PropTypes.string,
+    language: PropTypes.string,
+    git_url: PropTypes.string,
+    ssh_url: PropTypes.string,
+    comments: PropTypes.arrayOf(PropTypes.object),
+    user: PropTypes.object,
+    owner_raw: PropTypes.object,
+  }),
+};
+
+RepoGeneralInfo.defaultProps = {
+  issue: {},
 };
 
 export default RepoGeneralInfo;

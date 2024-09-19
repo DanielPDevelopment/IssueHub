@@ -49,7 +49,7 @@ const Legacy = ({
             <>
               <h1 className={`${!expanded ? 'hidden' : 'block'} text-base text-white bg-opacity-80 text-2xl px-12`}>Zombie Repos</h1>
               <p className="pl-12 text-white text-gray-400 text-sm">These repos have old issues that haven&apos;t been addressed yet</p>
-              <div className="z-20 grid grid-cols-1 gap-6 md:grid-cols-5 px-10 py-4 h-full">
+              <div className="z-20 grid grid-cols-1 gap-2 md:grid-cols-4 2xl:grid-cols-8 px-10 py-4 h-full">
                 {data && data.length ? (data.map((item) => (
                   <ZombieCard
                     key={item._id}
@@ -91,7 +91,7 @@ const Legacy = ({
 Legacy.propTypes = {
   toggleExpansion: PropTypes.func.isRequired,
   expanded: PropTypes.bool.isRequired,
-  activeRepo: PropTypes.node,
+  activeRepo: PropTypes.object,
   setActiveRepo: PropTypes.func.isRequired,
 };
 

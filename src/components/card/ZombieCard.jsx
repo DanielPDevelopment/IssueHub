@@ -11,7 +11,7 @@ const ZombieCard = ({
   extra,
 }) => (
   <Card
-    extra={`flex flex-col w-full h-full !p-2 3xl:p-![18px] ${extra} `}
+    extra={extra}
   >
     <div
       className="h-full w-full hover:bg-orange-0/80 hover:cursor-pointer rounded-xl p-1"
@@ -27,15 +27,13 @@ const ZombieCard = ({
           alt=""
         />
       </div>
-      <div className="flex items-center justify-between px-1 md:flex-col md:items-start lg:flex-row lg:justify-between xl:flex-col xl:items-start 3xl:flex-row 3xl:justify-between">
+      <div className="flex items-center justify-between px-1 w-full">
         <div className="mb-1">
-          <div className="">
-            <span className="text-lg font-bold text-white">{title}</span>
-            <span className=" text-sm text-green-400 font-bold px-1">
-              {language}
-            </span>
-          </div>
-          <p className=" text-sm font-medium text-gray-600">
+          <span className="text-md font-bold text-white">{title}</span>
+          <span className=" text-xs text-green-400 font-bold px-1">
+            {language}
+          </span>
+          <p className="text-xs text-gray-600">
             {(description && description.length > 99) ? `${description.substring(0, 100).trim()}...` : description}
           </p>
         </div>
