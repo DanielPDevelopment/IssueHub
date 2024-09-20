@@ -170,6 +170,7 @@ const DevelopmentTable = (props) => {
               {pageIndex + 1}
               {' '}
               of
+              {' '}
               {Math.ceil(count / pageSize)}
             </strong>
           </span>
@@ -184,7 +185,7 @@ const DevelopmentTable = (props) => {
         </div>
       </div>
 
-      <div className="h-full overflow-x-scroll xl:overflow-x-hidden">
+      <div className="h-full overflow-x-scroll xl:overflow-x-hidden z-50">
         {isLoading
           ? (
             <div className="flex-wrap justify-center items-center">
