@@ -185,10 +185,10 @@ const DevelopmentTable = (props) => {
         </div>
       </div>
 
-      <div className="h-full overflow-x-scroll xl:overflow-x-hidden z-50">
+      <div className="h-full overflow-x-scroll xl:overflow-x-hidden">
         {isLoading
           ? (
-            <div className="flex-wrap justify-center items-center">
+            <div className="flex-wrap justify-center items-center z-50">
               <div className="w-full flex justify-center">
                 <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-orange-0/80" />
               </div>
