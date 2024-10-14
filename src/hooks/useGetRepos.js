@@ -43,37 +43,3 @@ export async function fetchSearch(userData, page = 0) {
   }
   return data;
 }
-
-// export async function fetchTrending() {
-//   let data;
-//   try {
-//     const response = await fetch(`${API}api/repos/trending`, {
-//       method: 'GET',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
-
-//     data = await response.json();
-//   } catch (error) {
-//     console.error(`❌ API - Repos - Trending: ${error.message}`, { escape: false });
-//   }
-//   return data;
-// }
-
-// export async function fetchOld() {
-//   let data;
-//   try {
-//     const response = await fetch(`${API}api/repos/old`, {
-//       method: 'GET',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
-
-//     data = await response.json();
-//   } catch (error) {
-//     console.error(`❌ API - Repos - Old: ${error.message}`, { escape: false });
-//   }
-//   return data;
-// }
