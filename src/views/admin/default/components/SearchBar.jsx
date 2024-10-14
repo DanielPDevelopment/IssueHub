@@ -6,7 +6,7 @@ const SearchBar = ({
   setFilteredResults, setResultsLoading, setCount, currentPage, setCurrentPage,
 }) => {
   const timerRef = useRef(null);
-  const [filterText, setFilterText] = useState(() => '');
+  const [filterText, setFilterText] = useState('');
 
   const getData = async (blurLoad) => {
     if (blurLoad) {
@@ -20,14 +20,19 @@ const SearchBar = ({
     }
   };
 
+  const clearSearch = async () => {
+    setFilterText(() => '');
+    setCurrentPage(null);
+    const data = await fetchSearch('', 0);
+    setFilteredResults(data.repos);
+    setCount(() => data.count || null);
+  };
+
   const handleSearchChange = () => {
-    console.log('handleSearchChange');
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
-
     timerRef.current = setTimeout(() => {
-      setCurrentPage(0);
       getData(false);
     }, 1000);
   };
@@ -38,17 +43,10 @@ const SearchBar = ({
     }
   }, [filterText]);
 
-  //   useEffect(() => {
-  //     getData();
-  //     return () => {
-  //       if (timerRef.current) {
-  //         clearTimeout(timerRef.current);
-  //       }
-  //     };
-  //   }, []);
-
   useEffect(() => {
-    getData(true);
+    if (currentPage !== null) {
+      getData(true);
+    }
   }, [currentPage]);
 
   return (
@@ -59,7 +57,7 @@ const SearchBar = ({
           placeholder="Search Issues"
           className="w-full py-2 px-4 bg-white bg-opacity-80 rounded-lg shadow-md text-gray-0
                       focus:outline-none focus:bg-white focus:bg-opacity-80 focus:ring-2 focus:ring-gray-900
-                      ::placeholder:text-red-500" // Apply red color to placeholder text
+                      ::placeholder:text-red-500"
           value={filterText}
           onChange={(e) => setFilterText(e.target.value)}
         />
@@ -67,9 +65,7 @@ const SearchBar = ({
           <button
             type="button"
             className="absolute inset-y-0 right-0 p-2 focus:outline-none"
-            onClick={() => {
-              setFilterText('');
-            }}
+            onClick={clearSearch}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

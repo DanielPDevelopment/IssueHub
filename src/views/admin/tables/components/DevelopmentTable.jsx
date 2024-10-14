@@ -29,6 +29,8 @@ const DevelopmentTable = (props) => {
     canPreviousPage,
     title,
     count,
+    legacyRepos,
+    trendingRepos,
   } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
@@ -103,19 +105,17 @@ const DevelopmentTable = (props) => {
         </div>
       ) : ''}
       <Trending
-        data={[...tableData].splice(0, 10)}
         toggleExpansion={toggleExpansion}
         expanded={expanded}
-        setExpanded={setExpanded}
+        data={trendingRepos}
       />
       {!expanded ? (
         <Legacy
-          data={[...tableData].splice(0, 10)}
           toggleExpansion={toggleLegacyExpansion}
           expanded={legacyExpanded}
-          setExpanded={setLegacyExpanded}
           activeRepo={activeRepo}
           setActiveRepo={setActiveRepo}
+          data={legacyRepos}
         />
       ) : ''}
 
@@ -387,6 +387,8 @@ DevelopmentTable.propTypes = {
   setCurrentPage: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   count: PropTypes.number,
+  legacyRepos: PropTypes.arrayOf(PropTypes.object),
+  trendingRepos: PropTypes.arrayOf(PropTypes.object),
 };
 
 DevelopmentTable.defaultProps = {
@@ -398,6 +400,8 @@ DevelopmentTable.defaultProps = {
   canPreviousPage: false,
   pageIndex: 0,
   count: 0,
+  legacyRepos: [],
+  trendingRepos: [],
 };
 
 export default DevelopmentTable;
