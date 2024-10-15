@@ -17,7 +17,6 @@ const Dashboard = () => {
       setResultsLoading(() => true);
     }
     const data = await fetchRepos('', 0);
-    console.log(data);
     setFilteredResults(data.repos);
     setCount(() => data.count || null);
     setLegacyRepos(data.legacy);
@@ -26,10 +25,6 @@ const Dashboard = () => {
       setResultsLoading(() => false);
     }
   };
-
-  useEffect(() => {
-    console.log(filteredResults);
-  }, [filteredResults]);
 
   useEffect(() => {
     getData();
