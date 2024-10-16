@@ -1,10 +1,5 @@
-import { atom } from 'jotai';
-
 const API = JSON.parse(process.env.REACT_APP_IS_DEV)
   ? process.env.REACT_APP_DEV_DOMAIN : process.env.REACT_APP_PROD_DOMAIN;
-
-export const repoData = atom([{ name: 'default' }]);
-export const repoDataNewest = atom([{ name: 'default' }]);
 
 export async function fetchRepos() {
   try {

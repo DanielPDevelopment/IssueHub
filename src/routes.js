@@ -12,7 +12,7 @@ helloWorld();
 const routes = [
   {
     name: 'Main Dashboard',
-    layout: '/admin',
+    layout: '/',
     path: 'default',
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
