@@ -20,7 +20,7 @@ const helloWorld = () => {
                                                                          
 
    `);
-  Logtastic.log('👋 Welcome to IssueHub - I hope you find this application useful.', { color: 'blue' });
+  Logtastic.log('👋 Welcome to IssueHub v2.0.1 - I hope you find this application useful.', { color: 'blue' });
   Logtastic.log('📢 If you have any questions or want to collab on something feel free to reach out to me https://ofrepose.github.io/ - ', { color: 'green' });
 };
 
